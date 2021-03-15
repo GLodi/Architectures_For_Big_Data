@@ -40,6 +40,22 @@ class idGenerator(typeGenerator):
     def addDict(self, d,keyName="id", **args):
         return super().addDict(d, keyName,**args)
 
+class mioIdGenerator(typeGenerator):
+    def __init__(self):
+        return super().__init__()
+
+    def generateEl(self,*argList,**args):
+        if argList:
+            args = argList[0]
+        prefix = args.get("prefix","id")
+        min = args.get("min",0)
+        max = args.get("max",1000)
+        strat = args.get("strategy", np.random.randint)
+        return prefix+"_"+str(strat(min, max)).zfill(len(str(max))+1)
+
+    def addDict(self, d,keyName="id", **args):
+        return super().addDict(d, keyName,**args)
+    
 class dateGenerator(typeGenerator):
     def __init__(self):
         return super().__init__()
