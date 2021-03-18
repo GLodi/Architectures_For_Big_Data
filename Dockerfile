@@ -1,4 +1,4 @@
-FROM jupyter/pyspark-notebook
+FROM jupyter/pyspark-notebook:31b807ec9e83
 WORKDIR /home/jovyan/work
 COPY dataGenerator /customLib/dataGenerator
 ENV PYTHONPATH=$PYTHONPATH:/customLib/
