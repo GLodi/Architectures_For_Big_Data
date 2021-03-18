@@ -1,5 +1,5 @@
 FROM jupyter/pyspark-notebook
-WORKDIR /home/jovyan/work
+WORKDIR /app
 COPY dataGenerator /customLib/dataGenerator
 ENV PYTHONPATH=$PYTHONPATH:/customLib/
 EXPOSE 8888
