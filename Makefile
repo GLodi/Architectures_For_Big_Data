@@ -1,15 +1,15 @@
-bigdimage=bigdimage
-bigdcont=bigd
-bigddir=/home/giulio/dev/stat/Architectures_For_Big_Data
+image=bigdimage
+cont=bigd
+direc=/home/giulio/dev/stat/Architectures_For_Big_Data
 build:
-	docker build $(bigddir) -t $(bigdimage)
+	docker build $(direc) -t $(image)
 run:
-	docker run -p 8888:8888 -v $(bigddir):/home/jovyan/work --name $(bigdcont) $(bigdimage)
+	docker run -p 8888:8888 -v $(direc):/home/jovyan/work --name $(cont) $(image)
 start:
-	docker start -a $(bigdcont)
+	docker start -a $(cont)
 stop:
-	docker stop $(bigdcont)
+	docker stop $(cont)
 rmi:
-	docker rmi $(bigdimage)
+	docker rmi $(image)
 rmc:
-	docker rm $(bigdcont)
+	docker rm $(cont)

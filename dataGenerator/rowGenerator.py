@@ -1,5 +1,5 @@
 from dataGenerator import *
-from random import randint
+from random import randint, random, choice
 import numpy as np
 
 class typeGenerator(ABC):
@@ -87,3 +87,13 @@ class tickGenerator(typeGenerator):
         maxTick = args.get("maxTick",10)
         self.lastTick += timedelta(0,randint(1,maxTick))
         return self.lastTick
+
+class randomFromListGenerator(typeGenerator):
+    def __init__(self):
+        return super().__init__()
+
+    def generateEl(self,*argList,**args):
+        if argList:
+            args = argList[0]
+        l = args.get("list",[1,2,3])
+        return choice(l)
