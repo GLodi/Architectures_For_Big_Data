@@ -1,6 +1,13 @@
+direc=/home/giulio/dev/stat/Architectures_For_Big_Data
+
+UNAME := $(shell uname)
+ifeq ($(UNAME), Darwin)
+	direc=/Users/giulio/dev/stat/Architectures_For_Big_Data
+endif
+
 image=bigdimage
 cont=bigd
-direc=/home/giulio/dev/stat/Architectures_For_Big_Data
+
 build:
 	docker build $(direc) -t $(image)
 run:
